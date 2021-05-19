@@ -15,11 +15,12 @@ const oldPointStructure = {
 function transform(oldPointStructure) {
   let pointStructure = {};
   for (const key in oldPointStructure) {
-    let letterArray = oldPointStructure[key]
-    for (i = 0; i < letterArray.length; i++){
-    pointStructure[letterArray[i]] = Number(key);
+    let letterArray = oldPointStructure[key];
+    for (let i = 0; i < letterArray.length; i++){
+    pointStructure[oldPointStructure[key][i].toLowerCase()] = Number(key);
   } 
-  } return pointStructure
+  }console.log(pointStructure); 
+  return pointStructure;
 };
 
 let newPointStructure = transform(oldPointStructure);
@@ -79,7 +80,7 @@ function vowelBonusScore(word) {
 }
 	   
 function scrabbleScore(word) {
-	word = word.toUpperCase();
+	word = word.toLowerCase();
 	let letterPoints = 0;
  
 	for (let i = 0; i < word.length; i++) {
@@ -123,7 +124,7 @@ function scorerPrompt() {
 
 
 function runProgram() {
-   console.clear();
+  //  console.clear();
    let userWord = initialPrompt();
    let userSelection = scorerPrompt();
    console.log(`${userWord}: ${userSelection.scoreFunction(userWord)}`);

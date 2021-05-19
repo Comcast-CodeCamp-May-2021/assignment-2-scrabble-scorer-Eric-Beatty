@@ -18,8 +18,8 @@ function transform(oldPointStructure) {
     let letterArray = oldPointStructure[key];
     for (let i = 0; i < letterArray.length; i++){
     pointStructure[oldPointStructure[key][i].toLowerCase()] = Number(key);
-  } 
-  }console.log(pointStructure); 
+    } 
+  }  
   return pointStructure;
 };
 
@@ -69,7 +69,7 @@ function vowelBonusScore(word) {
 	let vowels = ["A", "E", "I", "O", "U"];
   let letterPoints = 0;
 	for (let i = 0; i < word.length; i++) {
-    if (vowels[i].includes(word[i])) {
+    if (vowels.includes(word[i])) {
       letterPoints+=3
     }
       else {
